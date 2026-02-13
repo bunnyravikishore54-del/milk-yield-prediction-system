@@ -2,6 +2,8 @@
 gunicorn
 cryptography(Mandatory for SSL/TLS connections)
 mysql-connector-python
+pandas
+scikit-learn
 
 
 
