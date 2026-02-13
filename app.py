@@ -15,10 +15,12 @@ except:
 # [span_3](start_span)Database connection for MySQL through XAMPP[span_3](end_span)
 def get_db():
     return mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="",
-        database="milk_predictor"
+        host="mysql-16d1a3fe-kondiravikishore-a7b1.j.aivencloud.com",
+        port=19990,
+        user="avnadmin",
+        password="PASTE_YOUR_AIVEN_PASSWORD_HERE",
+        database="defaultdb",
+        ssl_mode="REQUIRED"
     )
 
 @app.route('/')
@@ -67,4 +69,5 @@ def predict():
         return f"System Error: {e}"
 
 if __name__ == "__main__":
+
     app.run(debug=True)
