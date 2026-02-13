@@ -2,6 +2,7 @@
 gunicorn
 scikit-learn
 pandas
-cryptography
+cryptography(Mandatory for SSL/TLS connections)
 mysql-connector-python
 numpy
+
