@@ -13,6 +13,9 @@ except:
     model = None
 
 # [span_3](start_span)Database connection for MySQL through XAMPP[span_3](end_span)
+import mysql.connector
+from mysql.connector.constants import ClientFlag
+
 def get_db():
     return mysql.connector.connect(
         host="mysql-16d1a3fe-kondiravikishore-a7b1.j.aivencloud.com",
@@ -20,7 +23,8 @@ def get_db():
         user="avnadmin",
         password="PASTE_YOUR_AIVEN_PASSWORD_HERE",
         database="defaultdb",
-        ssl_mode="REQUIRED"
+        # This flag is mandatory for Aiven's secure connection
+        client_flags=[ClientFlag.SSL] 
     )
 
 @app.route('/')
@@ -71,3 +75,4 @@ def predict():
 if __name__ == "__main__":
 
     app.run(debug=True)
+
