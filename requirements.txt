@@ -1,8 +1,7 @@
 ﻿flask
 gunicorn
-scikit-learn
-pandas
 cryptography(Mandatory for SSL/TLS connections)
 mysql-connector-python
-numpy
+
+
 
