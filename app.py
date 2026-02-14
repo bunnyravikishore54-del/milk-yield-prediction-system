@@ -20,10 +20,11 @@ import os
 import mysql.connector
 conn = mysql.connector.connect(
     host=os.environ.get("DB_HOST"),
+    port=int(os.environ.get("DB_PORT")),
     user=os.environ.get("DB_USER"),
     password=os.environ.get("DB_PASSWORD"),
     database=os.environ.get("DB_NAME"),
-    port=int(os.environ.get("DB_PORT"))
+    ssl_disabled=False
 )
 @app.route('/')
 def home():
@@ -75,6 +76,7 @@ if __name__ == "__main__":
     # Use the port Render provides, or default to 10000 locally
     port = int(os.environ.get("PORT", 10000))
     app.run(host='0.0.0.0', port=port)
+
 
 
 
