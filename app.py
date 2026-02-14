@@ -17,14 +17,12 @@ import mysql.connector
 from mysql.connector.constants import ClientFlag
 
 import os
-import mysql.connector
-
-# Use os.environ to get the secrets from the workflow file
-db_connection = mysql.connector.connect(
-  host=os.environ.get('DB_HOST'),
-  user=os.environ.get('DB_USER'),
-  password=os.environ.get('DB_PASSWORD'),
-  port=os.environ.get('DB_PORT')
+conn = mysql.connector.connect(
+    host=os.environ.get("DB_HOST"),
+    user=os.environ.get("DB_USER"),
+    password=os.environ.get("DB_PASSWORD"),
+    database=os.environ.get("DB_NAME"),
+    port=int(os.environ.get("DB_PORT"))
 )
 @app.route('/')
 def home():
@@ -74,6 +72,7 @@ def predict():
 if __name__ == "__main__":
 
     app.run(debug=True)
+
 
 
 
