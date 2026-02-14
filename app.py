@@ -69,6 +69,12 @@ def predict():
         return render_template('index.html', prediction_text=output, profit=profit, history=history)
     except Exception as e:
         return f"System Error: {e}"
+import os
+
+if __name__ == "__main__":
+    # Use the port Render provides, or default to 10000 locally
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host='0.0.0.0', port=port)
 
 
 
