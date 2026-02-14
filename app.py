@@ -17,6 +17,7 @@ import mysql.connector
 from mysql.connector.constants import ClientFlag
 
 import os
+import mysql.connector
 conn = mysql.connector.connect(
     host=os.environ.get("DB_HOST"),
     user=os.environ.get("DB_USER"),
@@ -72,6 +73,7 @@ def predict():
 if __name__ == "__main__":
 
     app.run(debug=True)
+
 
 
 
