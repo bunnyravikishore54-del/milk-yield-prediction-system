@@ -26,6 +26,7 @@ conn = mysql.connector.connect(
     database=os.environ.get("DB_NAME"),
     ssl_disabled=False
 )
+print("Connected successfully!")
 @app.route('/')
 def home():
     try:
@@ -76,6 +77,7 @@ if __name__ == "__main__":
     # Use the port Render provides, or default to 10000 locally
     port = int(os.environ.get("PORT", 10000))
     app.run(host='0.0.0.0', port=port)
+
 
 
 
